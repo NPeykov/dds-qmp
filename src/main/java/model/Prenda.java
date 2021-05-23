@@ -10,6 +10,7 @@ public class Prenda {
   Trama trama;
   Color colorPrimario;
   Color colorSecundario;
+  EstadoPrenda estado;
 
 
   public Prenda(TipoPrenda tipoPrenda, Material material, Trama trama, Color colorPrimario, Color colorSecundario) {
@@ -18,9 +19,25 @@ public class Prenda {
     this.trama = trama;
     this.colorPrimario = colorPrimario;
     this.colorSecundario = colorSecundario;
+    this.estado = EstadoPrenda.NUEVA;
   }
 
   public Categoria getCategoria(){
     return this.tipoPrenda.getCategoria();
   }
+
+  public void fueSugerida(){
+    this.estado = estado.evaluarSiMuta();
+  }
+
+  public void lavar(){
+    if(this.estado == EstadoPrenda.PERCUDIDA)
+      throw new PrendaPercudidaException("No podes lavar una ropa percudida!");
+    this.estado = estado.LAVANDOSE;
+  }
+
+  public void fueLavada(){
+    this.estado = estado.dejarComoNueva();
+  }
+
 }
