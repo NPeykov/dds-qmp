@@ -16,16 +16,9 @@ public class GeneradorSugerencias{
         this.generadorPosta = generadorPosta;
     }
 
-    public Atuendo generarSugerencia(){
+    public Atuendo generarSugerencia(List<Prendas> Prendas){
         Atuendo atuendoSugerido = generadorPosta.generarSugerencia(); 
-        
         atuendoSugerido.forEach(prenda -> prenda.fueSugerida());
-
         return atuendoSugerido;
     }
-
-    public Prenda generarParteSuperior();
-    public Prenda generarParteInferior();
-    public Prenda generarCalzado();
-    public Prenda generarAccesorio();
 }

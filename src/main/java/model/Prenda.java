@@ -11,6 +11,7 @@ public class Prenda {
   Color colorPrimario;
   Color colorSecundario;
   EstadoPrenda estado;
+  Double temperaturaMaxima;
 
 
   public Prenda(TipoPrenda tipoPrenda, Material material, Trama trama, Color colorPrimario, Color colorSecundario) {
@@ -20,6 +21,10 @@ public class Prenda {
     this.colorPrimario = colorPrimario;
     this.colorSecundario = colorSecundario;
     this.estado = EstadoPrenda.NUEVA;
+  }
+
+  public boolean esAptaParaTemperatura(Double temperatura){
+    return temperaturaMaxima  > temperatura;
   }
 
   public Categoria getCategoria(){

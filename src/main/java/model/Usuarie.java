@@ -1,22 +1,25 @@
 
 public class Usuarie {
     Guardarropa guardarropa = new ArrayList<>();
-    GeneradorSugerencias generadorSugerencias;
+    SelectorPrendas selectorPrendas;
 
-    //Creo que inyectar la dependencia del generador de esta forma es algo coherente.
-    //De esta forma el que instancie un usuarie se ve OBLIGADO a ponerlo.
-    //Y de alguna forma es lógico, porque la app se trata de esto, de generar sugerencias.
+    //Creo que inyectar la dependencia del selector de prendas para una determinada estacion del año
+    //de esta forma es algo coherente.
     //
     //Podria settearlo posteriormente, pero en ese caso corro el riesgo que
-    //el que lo instancie se olvide de settearlo e intente generar algun atuendo.
+    //el que instancie se olvide de settearlo e intente generar algun atuendo.
 
-    public Usuarie(GeneradorSugerencias generadorSugerencias){
-        if(generadorSugerencias == null)
-            throw new GeneradorNullException("No asignaste un generador!");
-        this.generadorSugerencias = generadorSugerencias;
+    public Usuarie(SelectorPrendas selectorPrendas){
+        if(selectorPrendas == null)
+            throw new SelectorNullException("No asignaste un selector!");
+        this.selectorPrendas = selectorPrendas;
     }
 
     public void setGuardarropa(Guardarropa guardarropa){
         this.guardarropa = guardarropa;
+    }
+
+    public Atuendo obtenerSugerencia(String ciudad){
+        return selectorPrendas.generarSugerenciaAcordeAlClima(ciudad, guardarropa);
     }
 }
