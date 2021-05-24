@@ -1,0 +1,103 @@
+@startuml
+class Prenda{
+  double temperaturaMaxima
+
+  boolean esAptaParaTemperatura(Double temperatura)
+  categoria getCategoria()
+  void fueSugerida()
+  void lavar()
+  void fueLavada()
+}
+class AccuWeatherAdapter{
+  servicioClimatico
+  getClima(ciudad)
+}
+class AccuWeatherAPI{
+  getWeather(ciudad)
+}
+class Atuendo
+class BorradorPrenda{
+  agregarMaterial(material)
+  agregarColorPrimario(color)
+  agregarColorSecundario(color)
+  agregarTrama(trama)
+  crearPrenda()
+}
+enum Categoria{
+  PARTE_SUPERIOR,
+  CALZADO,
+  PARTE_INFERIOR,
+  ACCESORIOS
+}
+class Clima{
+  temperatura
+  humedad
+}
+class Color{
+  int rojo
+  int verde
+  int azul
+}
+enum EstadoPrenda{
+  NUEVA
+  SUCIA
+  PERCUDIDA
+  LAVANDOSE
+
+  evaluarSiMuta()
+  dejarComoNueva()
+}
+class GeneradorSugerencias{
+  generarSugerencia(prendas)
+  
+}
+class GeneradorSugerenciasExterno{
+  generarSugerencia(prendas)
+}
+class Guardarropa
+enum Material{
+  MATERIAL1,
+  MATERIAL2,
+  MATERIAL3,
+  ...
+}
+class SelectorPrendas
+interface ServicioClimatico{
+  getClima(ciudad)
+}
+class TipoPrenda{
+  getCategoria()
+}
+enum Trama{
+  LISA,
+  RAYADA,
+  CON_LUNARES,
+  CUADROS,
+  ESTAMPADO
+}
+abstract UniformeColegial{
+  generarUniforme()
+}
+class Usuarie{
+  obtenerSugerencias()
+}
+
+Prenda --> TipoPrenda
+Prenda --> Material
+Prenda --> Trama
+Prenda -->"1|2" Color
+Prenda --> EstadoPrenda
+TipoPrenda --> Categoria
+Atuendo -->"*" Prenda
+BorradorPrenda ..> Prenda
+AccuWeatherAdapter --> AccuWeatherAPI
+ServicioClimatico <|-- AccuWeatherAdapter
+Guardarropa -->"*" Prenda
+Usuarie --> Guardarropa
+Usuarie --> SelectorPrendas
+SelectorPrendas --> ServicioClimatico
+SelectorPrendas --> GeneradorSugerencias
+GeneradorSugerencias --> GeneradorSugerenciasExterno
+SelectorPrendas ..> Clima
+UniformeColegial --> Prenda
+@enduml
