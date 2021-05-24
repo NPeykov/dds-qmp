@@ -1,7 +1,8 @@
 
 public class Usuarie {
-    Guardarropa guardarropa = new ArrayList<>();
+    Guardarropa guardarropas;
     SelectorPrendas selectorPrendas;
+    List<Recomendaciones> recomendaciones = new ArrayList<>();
 
     //Creo que inyectar la dependencia del selector de prendas para una determinada estacion del año
     //de esta forma es algo coherente.
@@ -22,4 +23,18 @@ public class Usuarie {
     public Atuendo obtenerSugerencia(String ciudad){
         return selectorPrendas.generarSugerenciaAcordeAlClima(ciudad, guardarropa);
     }
+
+    public void aceptarRecomendacion(Recomendacion recomendacion){
+        recomendacion.aplicarseA(this);
+        recomendaciones.remove(recomendacion);
+    }
+
+    public void agregarPrenda(Prenda prenda){
+        guardarropas.add(prenda);
+    }
+
+    public void eliminarPrenda(Prenda prenda){
+        guardarropas.remove(prenda);
+    }
+
 }

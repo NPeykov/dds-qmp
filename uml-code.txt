@@ -7,6 +7,7 @@ class Prenda{
   void fueSugerida()
   void lavar()
   void fueLavada()
+  void agregarseA(usuario)
 }
 class AccuWeatherAdapter{
   servicioClimatico
@@ -54,7 +55,13 @@ class GeneradorSugerencias{
 class GeneradorSugerenciasExterno{
   generarSugerencia(prendas)
 }
-class Guardarropa
+interface Guardarropa{
+
+}
+
+class RopaDeViaje{}
+class RopaEntreCasa{}
+
 enum Material{
   MATERIAL1,
   MATERIAL2,
@@ -78,8 +85,27 @@ enum Trama{
 abstract UniformeColegial{
   generarUniforme()
 }
+
 class Usuarie{
+ 
   obtenerSugerencias()
+  aceptarRecomendacion(recomendacion)
+  agregarAPrenda(prenda)
+  eliminarPrenda(prenda)
+  
+}
+
+interface Recomendaciones{
+  prenda
+  aplicarseA(usuarie)
+}
+
+class PrendaABorrar{
+  aplicarseA(usuarie)
+}
+
+class PrendaAAgregar{
+  aplicarseA(usuarie)
 }
 
 Prenda --> TipoPrenda
@@ -100,4 +126,9 @@ SelectorPrendas --> GeneradorSugerencias
 GeneradorSugerencias --> GeneradorSugerenciasExterno
 SelectorPrendas ..> Clima
 UniformeColegial --> Prenda
+Guardarropa <|.. RopaDeViaje
+Guardarropa <|.. RopaEntreCasa
+Usuarie -->"*" Recomendaciones
+Recomendaciones <|.. PrendaAAgregar
+Recomendaciones <|.. PrendaABorrar
 @enduml
