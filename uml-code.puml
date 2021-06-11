@@ -1,4 +1,4 @@
-@startuml
+@startuml QMP
 class Prenda{
   double temperaturaMaxima
 
@@ -59,9 +59,6 @@ interface Guardarropa{
 
 }
 
-class RopaDeViaje{}
-class RopaEntreCasa{}
-
 enum Material{
   MATERIAL1,
   MATERIAL2,
@@ -119,15 +116,13 @@ BorradorPrenda ..> Prenda
 AccuWeatherAdapter --> AccuWeatherAPI
 ServicioClimatico <|-- AccuWeatherAdapter
 Guardarropa -->"*" Prenda
-Usuarie --> Guardarropa
+Usuarie -->"*" Guardarropa
 Usuarie --> SelectorPrendas
 SelectorPrendas --> ServicioClimatico
 SelectorPrendas --> GeneradorSugerencias
 GeneradorSugerencias --> GeneradorSugerenciasExterno
 SelectorPrendas ..> Clima
 UniformeColegial --> Prenda
-Guardarropa <|.. RopaDeViaje
-Guardarropa <|.. RopaEntreCasa
 Usuarie -->"*" Recomendaciones
 Recomendaciones <|.. PrendaAAgregar
 Recomendaciones <|.. PrendaABorrar
