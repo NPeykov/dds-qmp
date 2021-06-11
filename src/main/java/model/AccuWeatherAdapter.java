@@ -9,4 +9,10 @@ public class AccuWeatherAdapter extends ServicioClimatico{
         return new Clima(temperatura, humedad);
     }
 
+    @Override
+    public List<String> getAlertas(String ciudad){
+        Map<String, Object> alertas = apiClima.getAlertas(“Buenos Aires”); 
+        return alertas.get("CurrentAlerts"); //Devuelve un objeto como [“STORM”, “HAIL”, ...]
+    }
+
 }

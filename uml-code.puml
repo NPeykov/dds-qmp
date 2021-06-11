@@ -12,9 +12,11 @@ class Prenda{
 class AccuWeatherAdapter{
   servicioClimatico
   getClima(ciudad)
+  getAlertas(ciudad)
 }
 class AccuWeatherAPI{
   getWeather(ciudad)
+  getAlerts(ciudad)
 }
 class Atuendo
 class BorradorPrenda{
@@ -66,8 +68,10 @@ enum Material{
   ...
 }
 class SelectorPrendas
+
 interface ServicioClimatico{
   getClima(ciudad)
+  getAlerta(ciudad)
 }
 class TipoPrenda{
   getCategoria()

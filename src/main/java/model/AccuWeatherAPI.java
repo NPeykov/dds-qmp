@@ -19,4 +19,8 @@ public final class AccuWeatherAPI {
 			}});
 		}});
 	}
+
+	public final Map<String, List<String>> getAlerts(String city){
+		//TODO;
+	}
 }
