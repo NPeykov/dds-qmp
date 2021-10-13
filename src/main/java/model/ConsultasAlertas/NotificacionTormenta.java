@@ -1,3 +1,7 @@
+package model.ConsultasAlertas;
+
+import java.util.List;
+
 public class NotificacionTormenta implements Interesado{
     NotificationService notificador;
 

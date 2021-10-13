@@ -1,3 +1,5 @@
+package model.ServicioClima;
+
 public class Clima{
     Double temperatura;
     Double humedad;

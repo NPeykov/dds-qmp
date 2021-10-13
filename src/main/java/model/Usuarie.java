@@ -1,8 +1,19 @@
+package model;
+
+import Exceptions.SelectorNullException;
+import model.Guardarropas.Atuendo;
+import model.Guardarropas.Guardarropa;
+import model.Prendas.Prenda;
+import model.Sugerencias.Recomendacion;
+import model.Sugerencias.SelectorPrendas;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuarie {
-    Guardarropa guardarropas;
+    Guardarropa guardarropa;
     SelectorPrendas selectorPrendas;
-    List<Recomendaciones> recomendaciones = new ArrayList<>();
+    List<Recomendacion> recomendaciones = new ArrayList<>();
 
     //Creo que inyectar la dependencia del selector de prendas para una determinada estacion del año
     //de esta forma es algo coherente.
@@ -30,11 +41,11 @@ public class Usuarie {
     }
 
     public void agregarPrenda(Prenda prenda){
-        guardarropas.add(prenda);
+        guardarropa.agregarPrenda(prenda);
     }
 
     public void eliminarPrenda(Prenda prenda){
-        guardarropas.remove(prenda);
+        guardarropa.removerPrenda(prenda);
     }
 
 }

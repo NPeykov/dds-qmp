@@ -1,4 +1,8 @@
-public class NotificacionGranizo implements Interesado{
+package model.ConsultasAlertas;
+
+import java.util.List;
+
+public class NotificacionGranizo implements Interesado {
     NotificationService notificador;
 
     @Override

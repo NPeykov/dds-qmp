@@ -1,3 +1,6 @@
+package model.Guardarropas;
+
+import model.Prendas.Prenda;
 
 public class Atuendo {
     Prenda parteSuperior;

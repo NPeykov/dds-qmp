@@ -1,8 +1,6 @@
-package model;
+package model.Prendas;
 
-import Exceptions.ColorPrimarioNullException;
-import Exceptions.MaterialNullException;
-import Exceptions.TipoPrendaNullException;
+import Exceptions.PrendaPercudidaException;
 
 public class Prenda {
   TipoPrenda tipoPrenda;
@@ -38,7 +36,7 @@ public class Prenda {
   public void lavar(){
     if(this.estado == EstadoPrenda.PERCUDIDA)
       throw new PrendaPercudidaException("No podes lavar una ropa percudida!");
-    this.estado = estado.LAVANDOSE;
+    this.estado = EstadoPrenda.LAVANDOSE;
   }
 
   public void fueLavada(){

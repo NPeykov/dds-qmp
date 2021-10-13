@@ -1,3 +1,15 @@
+package model.Sugerencias;
+
+import model.Guardarropas.Atuendo;
+import model.Guardarropas.Guardarropa;
+import model.Prendas.Prenda;
+import model.ServicioClima.Clima;
+import model.ServicioClima.ServicioClimatico;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class SelectorPrendas{
     ServicioClimatico servicioClimatico;
     GeneradorSugerencias generador;
@@ -9,8 +21,10 @@ public class SelectorPrendas{
 
     public Atuendo generarSugerenciaAcordeAlClima(String ciudad, Guardarropa guardarropa){
         Double temperatura = getTemperaturaActual(ciudad);
-        List<Prendas> prendasValidasParaClimaActual = combinacionesPrendas(guardarropa)
-            .filter(prenda -> prenda.esAptaParaTemperatura(temperatura));
+        List<Prenda> prendasValidasParaClimaActual = combinacionesPrendas(guardarropa)
+            .stream()
+            .filter(p -> p.esAptaParaTemperatura(temperatura))
+            .collect(Collectors.toList());
         return generador.generarSugerencia(prendasValidasParaClimaActual);
     }
 
@@ -19,7 +33,7 @@ public class SelectorPrendas{
         return climaActual.getTemperatura();
     }
 
-    public List<Prendas> combinacionesPrendas(Guardarropa guardarropa){
-        //TODO
+    public List<Prenda> combinacionesPrendas(Guardarropa guardarropa){
+        return new ArrayList<Prenda>();//TODO
     }
 }

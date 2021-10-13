@@ -1,3 +1,4 @@
+package model.Prendas;
 /*
 No se si este es un buen approach al requerimiento del estado de una prenda,
 tampoco se si la sintaxis estaria bien.
@@ -6,24 +7,7 @@ Pero creo que va por este camino.
 */
 
 
-public enum EstadoPrenda{
-    
-    Integer usos = 0;
-
-    public EstadoPrenda evaluarSiMuta(){
-        Estado estadoEvaluado = this;
-        this.usos += 1;
-        if(puedeMutar()){
-            estadoEvaluado = siguienteEstado();
-        }
-        return estadoEvaluado;
-    }
-
-    public EstadoPrenda dejarComoNueva(){
-        this.usos = 0;
-        return NUEVA;
-    }
-    
+public enum EstadoPrenda {
     
     NUEVA{
         @Override
@@ -69,4 +53,24 @@ public enum EstadoPrenda{
             return false;
         }
     };
+
+    public EstadoPrenda evaluarSiMuta() {
+        EstadoPrenda estadoEvaluado = this;
+        this.usos += 1;
+        if(puedeMutar()){
+            estadoEvaluado = siguienteEstado();
+        }
+        return estadoEvaluado;
+    }
+
+    public EstadoPrenda dejarComoNueva(){
+        this.usos = 0;
+        return NUEVA;
+    }
+
+    abstract public boolean puedeMutar();
+
+    abstract public EstadoPrenda siguienteEstado();
+
+    Integer usos = 0;
 }

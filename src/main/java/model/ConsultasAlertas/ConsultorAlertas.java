@@ -1,3 +1,9 @@
+package model.ConsultasAlertas;
+
+import model.ServicioClima.ServicioClimatico;
+
+import java.util.List;
+
 public class ConsultorAlertas{
     ServicioClimatico servicioClimatico;
     List<Interesado> interesados;

@@ -1,4 +1,4 @@
-package model;
+package model.Prendas;
 
 public enum Categoria {
   PARTE_SUPERIOR,

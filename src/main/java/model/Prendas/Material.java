@@ -1,8 +1,7 @@
-package model;
+package model.Prendas;
 
 public enum Material {
     MATERIAL1,
     MATERIAL2,
-    MATERIAL3,
-    ...
+    MATERIAL3
 }

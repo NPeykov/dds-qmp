@@ -1,8 +1,9 @@
-package model;
+package model.Prendas;
 
 import Exceptions.ColorPrimarioNullException;
 import Exceptions.MaterialNullException;
 import Exceptions.TipoPrendaNullException;
+
 
 public class BorradorPrenda {
   TipoPrenda tipoPrenda;

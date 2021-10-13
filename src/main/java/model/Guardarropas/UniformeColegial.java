@@ -1,3 +1,6 @@
+package model.Guardarropas;
+
+import model.Prendas.Prenda;
 
 public abstract class UniformeColegial{
     
@@ -5,7 +8,7 @@ public abstract class UniformeColegial{
        return new Atuendo(hacerParteSuperior(), hacerParteInferior(), hacerCalzado());
    }
 
-   public Prenda hacerParteSuperior();
-   public Prenda hacerParteInferior();
-   public Prenda hacerCalzado();
+   public abstract Prenda hacerParteSuperior();
+   public abstract Prenda hacerParteInferior();
+   public abstract Prenda hacerCalzado();
 }
