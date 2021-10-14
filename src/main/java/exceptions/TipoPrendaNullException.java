@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 public class TipoPrendaNullException extends RuntimeException{
   public TipoPrendaNullException(String errorMessage){
