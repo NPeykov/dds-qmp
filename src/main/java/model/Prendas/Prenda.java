@@ -1,6 +1,6 @@
 package model.Prendas;
 
-import Exceptions.PrendaPercudidaException;
+import exceptions.PrendaPercudidaException;
 
 public class Prenda {
   TipoPrenda tipoPrenda;

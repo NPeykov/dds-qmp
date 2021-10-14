@@ -1,6 +1,6 @@
 package model;
 
-import Exceptions.SelectorNullException;
+import exceptions.SelectorNullException;
 import model.Guardarropas.Atuendo;
 import model.Guardarropas.Guardarropa;
 import model.Prendas.Prenda;

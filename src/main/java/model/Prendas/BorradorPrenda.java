@@ -1,8 +1,8 @@
 package model.Prendas;
 
-import Exceptions.ColorPrimarioNullException;
-import Exceptions.MaterialNullException;
-import Exceptions.TipoPrendaNullException;
+import exceptions.ColorPrimarioNullException;
+import exceptions.MaterialNullException;
+import exceptions.TipoPrendaNullException;
 
 
 public class BorradorPrenda {
