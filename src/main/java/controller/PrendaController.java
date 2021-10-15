@@ -15,21 +15,21 @@ public class PrendaController {
   //Como usuarie de QueMePongo quiero ver una prenda en particular
   //que tengo en mi guardarropas para poder editarla
   public ModelAndView visualizacionPrenda(Request request, Response response) {
-    String idGuardarropa = request.attribute("guardarropa");
-    String idPrenda = request.attribute("prenda");
+    String idGuardarropa = request.params("guardarropa");
+    String idPrenda = request.params("prenda");
     //conseguir la prenda 'idPrenda' de la guardarropa 'idguardarropa'
     return new ModelAndView(null, "visualizacion-prenda.html.hbs");
   }
 
   //Como usuarie de QueMePongo, quiero poder eliminar una prenda de mi guardarropas
   public Void eliminacionPrenda(Request request, Response response) {
-    String idGuardarropa = request.attribute("guardarropa");
-    String idPrenda = request.attribute("prenda");
+    String idPrenda = request.params("id");
     //eliminar la prenda del guardarropas
     return null;
   }
 
   public ModelAndView edicionPrenda(Request request, Response response) {
+    String prendaAEditar = request.params("id");
     return new ModelAndView(null, "edicion-prenda.html.hbs");
   }
 }

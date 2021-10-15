@@ -7,7 +7,7 @@ import spark.Response;
 public class GuardarropaController {
 
   public ModelAndView buscarGuardarropa(Request request, Response response) {
-    String idGuardarropa = request.queryParamOrDefault("guardarropa", "null");
+    String idGuardarropa = request.params("id");
     return new ModelAndView(idGuardarropa, "guardarropa.html.hbs");
   }
 

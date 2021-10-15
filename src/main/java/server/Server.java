@@ -17,11 +17,11 @@ public class Server {
     Spark.port(9000);
     Spark.get("/", index::redirigir);
     Spark.get("/QMP", index::getIndex, engine);
-    Spark.get("/QMP/guardarropa/", guardarropa::buscarGuardarropa, engine);
-    Spark.get("/QMP/prenda/", prendaController::visualizacionPrenda, engine);
-    Spark.delete("QMP/prenda/", prendaController::eliminacionPrenda);
+    Spark.get("/QMP/guardarropa/:id", guardarropa::buscarGuardarropa, engine);
+    Spark.get("/QMP/guardarropa/:guardarropa/prenda/:prenda", prendaController::visualizacionPrenda, engine);
+    Spark.delete("QMP/prenda/:id", prendaController::eliminacionPrenda);
     Spark.put("QMP/prenda", prendaController::creacionPrenda, engine);
-    Spark.patch("QMP/prenda", prendaController::edicionPrenda, engine);
+    Spark.patch("QMP/prenda/:id", prendaController::edicionPrenda, engine);
   }
 
 }
